@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Scripts -->
     <script src="./scripts/main.js" defer type="module"></script>
-    <title>Document</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <title>Tip Calculator</title>
 </head>
 <body>
-    
+    <main>
+        <div class="container actions">
+            <h2>Bill</h2>
+            <form action="">
+                <label for="cash" class="sr-only">Bill</label>
+                <input name="cash" type="text" placeholder="0">
+            </form>
+            <section class="actions">
+                <h2>Select Tip %</h2>
+                <div class="lineOne">
+                    <button>5%</button>
+                    <button>10%</button>
+                    <button>15%</button>
+                </div>
+                <div class="lineTwo">
+                    <button>25%</button>
+                    <button>50%</button>
+                    <button>Custom</button>
+                </div>
+            </section>
+            <section class="people">
+                <h2>Number of People</h2>
+                <form action="">
+                    <label for="people-quantity" class="sr-only" >Number of People</label>
+                    <input name="people-quantity" type="text" placeholder="0">
+                </form>
+            </section>
+        </div>
+        <div class="container display">
+
+        </div>
+    </main>
 </body>
 </html>

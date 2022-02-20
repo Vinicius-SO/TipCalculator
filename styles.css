@@ -1,0 +1,50 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+
+}
+:root{
+
+    /* Primary colors */
+    --Strong-cyan: hsl(172, 67%, 45%);
+
+    /* neutral colors */
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Dark-grayish-cyan-darker: hsl(186, 14%, 43%);
+    --Dark-grayish-cyan: hsl(184, 14%, 56%);
+    --Light-grayish-cyan-darker: hsl(185, 41%, 84%);
+    --Light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    font-size: 62.5%;
+
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: var(--Light-grayish-cyan-darker);
+    display: flex;
+}
+
+body > main{
+    margin: auto;
+    width: 60%;
+    height: 50%;
+    background: var(--White);
+    padding: 5rem;
+    border-radius: 2.5rem;
+}
+.sr-only{
+    position:absolute;
+    height: 1px;
+    padding:0;
+    margin:-1px;
+    overflow: hidden;
+    clip-path: rect(0,0,0,0);
+    white-space:nowrap;
+    border-width: 0;
+}
