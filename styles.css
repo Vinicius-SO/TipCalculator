@@ -1,10 +1,10 @@
 *{
-
     margin: 0;
     padding: 0;
     border: none;
     box-sizing: border-box;
     font-family: 'Space Mono', monospace;
+    overflow: hidden;
 
 }
 :root{
@@ -21,6 +21,17 @@
     --White: hsl(0, 0%, 100%);
     font-size: 62.5%;
 
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 body{
@@ -39,6 +50,8 @@ body > main{
     background: var(--White);
     padding: 4rem;
     border-radius: 2rem;
+    opacity: 0;
+    animation: open 2s ease-out .5s  forwards;
 }
 .sr-only{
     position:absolute;
@@ -114,15 +127,25 @@ body main .container.actions .actions{
     height: 15rem;
 }
 body main .container.actions .actions > h2{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 body main .container.actions .actions button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30%;
     height: 5rem;
     border-radius: .5rem;
     background: var(--Very-dark-cyan) ;
     color: var(--White);
     font-size: 1.8em;
+    transition: .5s ease-out;
+}
+
+body main .container.actions .actions button:hover{
+    background: var(--Strong-cyan) ;
+    color: var(--Very-dark-cyan);
+    cursor: pointer;
 }
 
 body main .container.actions .actions button.custom{
@@ -137,4 +160,64 @@ body main .container.actions .actions h2 + div{
 body main .container.actions .actions .line{
     display: flex;
     justify-content: space-between;
+}
+
+/* container display styles */
+body  main .container.display{
+   padding: .5rem 4rem 4rem 4rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+body  main .container.display  .containerValue{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+ body  main .container.display .containerValue .value{
+    height: 100%;
+    display: flex;
+    margin-top: 2.5rem;
+    align-items: center;
+    color: var(--Strong-cyan);
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+ }
+ body  main .container.display .containerValue .valueTitle{
+    color: var(--Light-grayish-cyan-darker);
+    font-size: 1.4rem;
+    font-weight: 700;
+ }
+ body  main .container.display .containerValue .perPerson{
+    color: var(--Dark-grayish-cyan);
+    font-size: .9rem;
+    font-weight: 700;
+ }
+ body  main .container.display > button{
+    background: var(--Dark-grayish-cyan-darker);
+    color: var(--Very-dark-cyan);
+    font-size: 2rem;
+    font-weight: 700;
+    height: 15%;
+    border-radius: .3rem;
+    font-family: sans-serif;
+    transition: .3s linear;
+ }
+
+body  main .container.display > button:hover{
+    background: var(--Strong-cyan);
+    cursor: pointer;
+}
+
+@keyframes open {
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }

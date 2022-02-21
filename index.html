@@ -34,13 +34,13 @@
             <section class="actions">
                 <h2>Select Tip %</h2>
                 <div class="line">
-                    <button>5%</button>
-                    <button>10%</button>
-                    <button>15%</button>
+                    <button><p class="buttonValue">5</p><p>%</p></button>
+                    <button><p class="buttonValue">10</p><p>%</p></button>
+                    <button><p class="buttonValue">15</p><p>%</p></button>
                 </div>
                 <div class="line">
-                    <button>25%</button>
-                    <button>50%</button>
+                    <button><p class="buttonValue">25</p><p>%</p></button>
+                    <button><p class="buttonValue">50</p><p>%</p></button>
                     <button class="custom">Custom</button>
                 </div>
             </section>
@@ -56,7 +56,31 @@
             </section>
         </div>
         <div class="container display">
-
+            <div>
+                <div class="containerValue">
+                    <div class="title">
+                        <div class="valueTitle">Tip Amount</div>
+                        <div class="perPerson">/ person</div>
+                    </div>
+                    <div class="value">
+                        <p>$</p>
+                        <p class="tipValue">0.00</p>
+                    </div>
+                </div>
+    
+                <div class="containerValue">
+                    <div class="title">
+                        <div class="valueTitle">Total</div>
+                        <div class="perPerson">/ person</div>
+                    </div>
+                    <div class="value">
+                        <p>$</p>
+                        <p class="tipValue">0.00</p>
+                    </div> 
+                
+                </div>
+            </div>
+            <button class="reset">Reset</button>
         </div>
     </main>
 </body>
