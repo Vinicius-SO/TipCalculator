@@ -2,13 +2,28 @@ class TipCalculator{
     constructor(tipAmount,totalAmount){
         this.tipAmountTextElement = tipAmount
         this.totalAmountTextElement = totalAmount
+        this.reset()
     }
 
-    getValues(porcentage, money, people){
+    getPorcentage(porcentage){
         this.porcentage = parseInt(porcentage)/100
+        this.checkValues()
+    }
+
+    getMoney(money){
         this.money = parseFloat(money)
+        this.checkValues()
+    }
+    getPeople(people){
         this.people = parseInt(people)
-        this.processValues()
+        this.checkValues()
+    }
+
+    checkValues(porcentage, money, people){
+        if(this.porcentage!=0 && this.money!=0 && this.people!=0){
+            this.processValues()
+        }
+        
     }
 
     processValues(){
@@ -39,9 +54,9 @@ function cleanInput(){
 }
 
 const buttons = document.querySelectorAll('[data-number]')
-const customValue = document.querySelector('[data-custom]')
+const custom = document.querySelector('[data-custom]')
 const money = document.querySelector('[data-value]')
-const persons = document.querySelector('[data-persons]')
+const people = document.querySelector('[data-persons]')
 const reset = document.querySelector('[data-reset]')
 
 const tipAmount = document.querySelector('#tipValue')
@@ -52,9 +67,22 @@ const calculator = new TipCalculator(tipAmount,totalAmount)
 
 buttons.forEach(button =>{
     button.addEventListener('click',()=>{
-        calculator.getValues(button.firstChild.innerText, money.value, persons.value)
+        calculator.getPorcentage(button.firstChild.innerText)
     })
 })
+
+custom.addEventListener('change',()=>{
+    calculator.getPorcentage(custom.value)
+})
+
+money.addEventListener('change',()=>{
+    calculator.getMoney(money.value)
+})
+
+people.addEventListener('change',()=>{
+    calculator.getPeople(people.value)
+})
+
 
 reset.addEventListener('click', ()=>{
     calculator.reset()
