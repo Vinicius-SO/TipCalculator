@@ -19,7 +19,7 @@ class TipCalculator{
         this.checkValues()
     }
 
-    checkValues(porcentage, money, people){
+    checkValues(){
         if(this.porcentage!=0 && this.money!=0 && this.people!=0){
             this.processValues()
         }
@@ -44,13 +44,13 @@ class TipCalculator{
         this.people = 0
         this.money = 0
         this.updateDisplay()
+        
+        peopleForm.classList.remove('error')
+        errorPeople.innerText = ""
+        valueForm.classList.remove('error')
+        errorValue.innerText = "" 
     }
 
-}
-
-function cleanInput(){
-    persons.value = ''
-    money.value = ''
 }
 
 const buttons = document.querySelectorAll('[data-number]')
@@ -58,12 +58,70 @@ const custom = document.querySelector('[data-custom]')
 const money = document.querySelector('[data-value]')
 const people = document.querySelector('[data-persons]')
 const reset = document.querySelector('[data-reset]')
+const valueForm = document.querySelector('[data-value-form]')
+const peopleForm = document.querySelector('[data-people-form]')
+const errorValue = document.querySelector('[data-error-value]')
+const errorPeople = document.querySelector('[data-error-people]')
 
 const tipAmount = document.querySelector('#tipValue')
 const totalAmount = document.querySelector('#totalValue')
 
 const calculator = new TipCalculator(tipAmount,totalAmount)
 
+function hasValue(item){
+    if(item.value === '0'){
+        valueForm.classList.add('error')
+        errorValue.innerText = "Can't be zero" 
+    }else{
+        valueForm.classList.remove('error')
+        errorValue.innerText = "" 
+    }
+}
+function hasPeople(item){
+    if(item.value === '0'){
+        peopleForm.classList.add('error')
+        errorPeople.innerText = "Can't be zero" 
+    }else{
+        peopleForm.classList.remove('error')
+        errorPeople.innerText = ""
+    }
+}
+
+$(window).ready(function() {
+    $(peopleForm).on("keypress", function (event) {
+        console.log("aaya");
+        var keyPressed = event.keyCode || event.which;
+        if (keyPressed === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+$(window).ready(function() {
+    $(valueForm).on("keypress", function (event) {
+        console.log("aaya");
+        var keyPressed = event.keyCode || event.which;
+        if (keyPressed === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+$(window).ready(function() {
+    $('#customForm').on("keypress", function (event) {
+        console.log("aaya");
+        var keyPressed = event.keyCode || event.which;
+        if (keyPressed === 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+
+function cleanInput(){
+    people.value = ''
+    money.value = ''
+}
 
 buttons.forEach(button =>{
     button.addEventListener('click',()=>{
@@ -77,12 +135,13 @@ custom.addEventListener('change',()=>{
 
 money.addEventListener('change',()=>{
     calculator.getMoney(money.value)
+    hasValue(money)
 })
 
 people.addEventListener('change',()=>{
     calculator.getPeople(people.value)
+    hasPeople(people)
 })
-
 
 reset.addEventListener('click', ()=>{
     calculator.reset()

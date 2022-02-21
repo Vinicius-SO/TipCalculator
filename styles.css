@@ -35,10 +35,28 @@ input[type=number] {
 }
 
 body{
+    position: relative;
     width: 100vw;
     height: 100vh;
     background: var(--Light-grayish-cyan-darker);
     display: flex;
+}
+body > .box{
+    position: absolute;
+    left: 45%;
+    top: 5rem;
+    word-break: break-word;
+    text-transform: uppercase;
+    line-height: 3.5rem;
+    letter-spacing: 1rem;
+    
+    opacity: 0;
+    animation: open 2s ease-out .5s  forwards;
+}
+
+body > .box > h1{
+   color: var(--Dark-grayish-cyan-darker);
+   font-size: 3rem;
 }
 
 body > main{
@@ -81,6 +99,7 @@ body main .container.actions{
     flex-direction: column;
     justify-content: space-between;
     background: var(--White);
+    overflow: visible;
 }
 
 /* form styles */
@@ -94,11 +113,24 @@ body main .container.actions form{
 
     display: flex;
     justify-content: space-between;
-
 }
+body main .container.actions section .title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+body main .container.actions section h2 + h2 {
+    color: orange;
+}
+
 body main .container.actions .image{
     width: 2rem;
     margin: auto;
+}
+body main .container.actions form input::placeholder{
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #9ebbbd;
 }
 
 body main .container.actions form input{
@@ -107,22 +139,20 @@ body main .container.actions form input{
     text-align: end;
     width: 100%;
     height: 100%;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--Dark-grayish-cyan);
+    color: var(--Very-dark-cyan);
     word-break: break-word;
     overflow: hidden;
 }
 
-body main .container.actions form input::placeholder{
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #9ebbbd;
+body main .container.actions form.error{
+ 
+    border: solid 1px orange;
 }
 
+
 /* action buttons */
-
-
 body main .container.actions .actions{
     height: 15rem;
 }
@@ -146,9 +176,11 @@ body main .container.actions .actions button > p:nth-child(1) {
     margin-right: .3rem;
 }
 
-body main .container.actions .actions button:hover{
+body main .container.actions .actions button:focus{
     background: var(--Strong-cyan) ;
     color: var(--Very-dark-cyan);
+}
+body main .container.actions .actions button:hover{
     cursor: pointer;
 }
 
@@ -158,6 +190,9 @@ body main .container.actions .actions form{
     height: 10%;
 }
 
+body main .container.actions .actions form .custom{
+    text-align: center;
+}
 body main .container.actions .actions form .custom:placeholder{
     color: var(--Very-dark-cyan);
     background: var(--Light-grayish-cyan) ;
@@ -228,7 +263,10 @@ body  main .container.display  .containerValue{
     transition: .3s linear;
  }
 
-body  main .container.display > button:hover{
+ body  main .container.display > button:hover{
+    cursor: pointer;
+}
+body  main .container.display > button:focus{
     background: var(--Strong-cyan);
     cursor: pointer;
 }
@@ -246,6 +284,10 @@ body  main .container.display > button:hover{
 
 @media only screen and (max-width: 600px) {
     /* For mobile phones: */
+    body > .box{
+        left: 35%;
+        top: 1rem;
+    }
     body > main{
       display: flex;
       flex-direction: column;
@@ -268,5 +310,19 @@ body  main .container.display > button:hover{
         font-size: .2rem ;
        
     }
+    body > main .container.container.container.display .containerValue{
+        height: 40%;    
+
+    }
+    body > main .container.container.container.display{
+        padding: 2rem ;
+
+    }
+    
+    body > main .container.container.container.display .reset{
+        height: min(40%,5rem);    
+
+    }
+
 
   }

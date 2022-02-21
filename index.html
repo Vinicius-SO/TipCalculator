@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Jquery -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
@@ -14,16 +20,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
+   
 
     <title>Tip Calculator</title>
 </head>
 <body>
+    <div class="box">
+        <h1><p>Spli</p>  tter</h1>
+    </div>
     <main>
         <div class="container actions">
             <section class="bill">
-                <h2>Bill</h2>
-                <form action="">
+                <div class="title">
+                    <h2>Bill</h2>
+                    <h2 data-error-value></h2>
+                </div>
+                <form data-value-form action="" disable="true">
                     <div class="image">
                         <img src="./images/icon-dollar.svg" alt="Dollar sing">
                     </div>
@@ -41,15 +53,18 @@
                 <div class="line">
                     <button data-number><p class="buttonValue">25</p><p>%</p></button>
                     <button data-number><p class="buttonValue">50</p><p>%</p></button>
-                    <form action="">
+                    <form id="customForm" action="">
                         <label for="custom" class="sr-only">Custom value</label>
                         <input data-custom type="number" name="custom" class="custom" placeholder="Custom">
                     </form>
                 </div>
             </section>
             <section class="people">
-                <h2>Number of People</h2>
-                <form action="">
+                <div class="title">
+                    <h2>Number of People</h2>
+                    <h2 data-error-people></h2>
+                </div>
+                <form data-people-form disable="true" action="">
                     <div class="image">
                         <img src="./images/icon-person.svg" alt="">
                     </div>
