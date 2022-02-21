@@ -21,11 +21,16 @@
 <body>
     <main>
         <div class="container actions">
-            <h2>Bill</h2>
-            <form action="">
-                <label for="cash" class="sr-only">Bill</label>
-                <input name="cash" type="text" placeholder="0">
-            </form>
+            <section class="bill">
+                <h2>Bill</h2>
+                <form action="">
+                    <div class="image">
+                        <img src="./images/icon-dollar.svg" alt="Dollar sing">
+                    </div>
+                    <label for="cash" class="sr-only">Bill</label>
+                    <input name="cash" type="number" placeholder="0">
+                </form>
+            </section>
             <section class="actions">
                 <h2>Select Tip %</h2>
                 <div class="lineOne">
@@ -42,8 +47,11 @@
             <section class="people">
                 <h2>Number of People</h2>
                 <form action="">
+                    <div class="image">
+                        <img src="./images/icon-person.svg" alt="">
+                    </div>
                     <label for="people-quantity" class="sr-only" >Number of People</label>
-                    <input name="people-quantity" type="text" placeholder="0">
+                    <input name="people-quantity" type="number" placeholder="0">
                 </form>
             </section>
         </div>
